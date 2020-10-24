@@ -86,6 +86,8 @@ namespace RandomCard
                 }
             }*/
 
+            ///12345
+
 
             /*MessageBox.Show("玩家1的卡:"+player1+"\n玩家2的卡:"+ player2 + 
                 "\n玩家3的卡:" + player3 + "\n玩家4的卡:" + player4);*/
