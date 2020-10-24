@@ -29,12 +29,13 @@
         private void InitializeComponent()
         {
             this.btnResult = new System.Windows.Forms.Button();
+            this.txtPlayer = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnResult
             // 
             this.btnResult.Font = new System.Drawing.Font("新細明體", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnResult.Location = new System.Drawing.Point(68, 51);
+            this.btnResult.Location = new System.Drawing.Point(73, 67);
             this.btnResult.Name = "btnResult";
             this.btnResult.Size = new System.Drawing.Size(305, 132);
             this.btnResult.TabIndex = 0;
@@ -42,21 +43,31 @@
             this.btnResult.UseVisualStyleBackColor = true;
             this.btnResult.Click += new System.EventHandler(this.btnResult_Click);
             // 
+            // txtPlayer
+            // 
+            this.txtPlayer.Location = new System.Drawing.Point(73, 24);
+            this.txtPlayer.Name = "txtPlayer";
+            this.txtPlayer.Size = new System.Drawing.Size(163, 25);
+            this.txtPlayer.TabIndex = 1;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(448, 251);
+            this.ClientSize = new System.Drawing.Size(547, 406);
+            this.Controls.Add(this.txtPlayer);
             this.Controls.Add(this.btnResult);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Button btnResult;
+        private System.Windows.Forms.TextBox txtPlayer;
     }
 }
 
