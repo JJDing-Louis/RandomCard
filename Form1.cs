@@ -30,7 +30,7 @@ namespace RandomCard
         {
             numPlayer = Int32.Parse(txtPlayer.Text);
             if (numPlayer <= 52) {
-                # if可以好好對齊嗎?
+                // if可以好好對齊嗎?(Ninten加的)
                 getCard();
                 reShuffleCard = Reshuffle(card);
                 getCardNumber =card.Length / numPlayer;
