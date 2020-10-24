@@ -29,35 +29,36 @@ namespace RandomCard
         private void btnResult_Click(object sender, EventArgs e)
         {
             numPlayer = Int32.Parse(txtPlayer.Text);
-            if (numPlayer <= 52) { 
-            getCard();
-            reShuffleCard = Reshuffle(card);
-            getCardNumber =card.Length / numPlayer;
-            
-            for (int i = 0; i < numPlayer; i++)
-            {
-                if (card.Length - getCardNumber * i > getCardNumber)
-                {
-                    txtMessage += "玩家" + (i + 1) + ":";
-                    for (int j = (0 + i) * getCardNumber; j < (1 + i) * getCardNumber; j++)
-                    {
-                        txtMessage += reShuffleCard[j] + ",";
+            if (numPlayer <= 52) {
+                # if可以好好對齊嗎?
+                getCard();
+                reShuffleCard = Reshuffle(card);
+                getCardNumber =card.Length / numPlayer;
 
-                    }
-                    txtMessage += "\n";
-                }
-            }
-            
-            if (card.Length % numPlayer != 0)
-            {
-                txtMessage += "剩下牌數" + card.Length % numPlayer + "\n";
-                for (int h = numPlayer * getCardNumber; h < 52; h++)
+                for (int i = 0; i < numPlayer; i++)
                 {
-                    txtMessage += reShuffleCard[h] + ",";
+                    if (card.Length - getCardNumber * i > getCardNumber)
+                    {
+                        txtMessage += "玩家" + (i + 1) + ":";
+                        for (int j = (0 + i) * getCardNumber; j < (1 + i) * getCardNumber; j++)
+                        {
+                            txtMessage += reShuffleCard[j] + ",";
+
+                        }
+                        txtMessage += "\n";
+                    }
                 }
-            }
-            MessageBox.Show(txtMessage);
-            txtMessage = ""; //訊息初始化
+
+                if (card.Length % numPlayer != 0)
+                {
+                    txtMessage += "剩下牌數" + card.Length % numPlayer + "\n";
+                    for (int h = numPlayer * getCardNumber; h < 52; h++)
+                    {
+                        txtMessage += reShuffleCard[h] + ",";
+                    }
+                }
+                MessageBox.Show(txtMessage);
+                txtMessage = ""; //訊息初始化
             }
             else { MessageBox.Show("玩家太多，且牌不夠!!!"); }
 
@@ -89,7 +90,7 @@ namespace RandomCard
             ///12345
 
 
-            /*MessageBox.Show("玩家1的卡:"+player1+"\n玩家2的卡:"+ player2 + 
+            /*MessageBox.Show("玩家1的卡:"+player1+"\n玩家2的卡:"+ player2 +
                 "\n玩家3的卡:" + player3 + "\n玩家4的卡:" + player4);*/
             Array.Clear(card, 0, card.Length);//卡片清除
                                               //value = "";
@@ -97,7 +98,7 @@ namespace RandomCard
                 player2 = "";
                 player3 = "";
                 player4 = "";*/
-            
+
         }
 
         //產生52張牌
