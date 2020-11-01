@@ -30,14 +30,16 @@
         {
             this.btnResult = new System.Windows.Forms.Button();
             this.txtPlayer = new System.Windows.Forms.TextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnResult
             // 
-            this.btnResult.Font = new System.Drawing.Font("新細明體", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnResult.Location = new System.Drawing.Point(73, 67);
+            this.btnResult.Font = new System.Drawing.Font("新細明體", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnResult.Location = new System.Drawing.Point(181, 14);
             this.btnResult.Name = "btnResult";
-            this.btnResult.Size = new System.Drawing.Size(305, 132);
+            this.btnResult.Size = new System.Drawing.Size(106, 25);
             this.btnResult.TabIndex = 0;
             this.btnResult.Text = "按我一下";
             this.btnResult.UseVisualStyleBackColor = true;
@@ -45,20 +47,33 @@
             // 
             // txtPlayer
             // 
-            this.txtPlayer.Location = new System.Drawing.Point(73, 24);
+            this.txtPlayer.Location = new System.Drawing.Point(12, 14);
             this.txtPlayer.Name = "txtPlayer";
             this.txtPlayer.Size = new System.Drawing.Size(163, 25);
             this.txtPlayer.TabIndex = 1;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 45);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 27;
+            this.dataGridView1.Size = new System.Drawing.Size(698, 323);
+            this.dataGridView1.TabIndex = 2;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(547, 406);
+            this.ClientSize = new System.Drawing.Size(722, 558);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.txtPlayer);
             this.Controls.Add(this.btnResult);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -68,6 +83,7 @@
 
         private System.Windows.Forms.Button btnResult;
         private System.Windows.Forms.TextBox txtPlayer;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
 

@@ -13,11 +13,6 @@ namespace RandomCard
 {
     public partial class Form1 : Form
     {
-        public Form1()
-        {
-            InitializeComponent();
-        }
-
         //string player1, player2, player3, player4;
         int[] card = new int[52];
         object[] reShuffleCard = new object[52];
@@ -25,9 +20,25 @@ namespace RandomCard
         int getCardNumber; //分到的牌數
         string txtMessage = ""; //顯示訊息
         //string value = "";
+        string[] row = new string[2];
+        string cardMessage = "";
+        
+
+        public Form1()
+        {
+            InitializeComponent();
+            //以下這一段是dataGridView
+            dataGridView1.ColumnCount = 2;
+            dataGridView1.Columns[0].Name = "玩家";
+            dataGridView1.Columns[1].Name = "手牌";
+        }
+
 
         private void btnResult_Click(object sender, EventArgs e)
         {
+            //DataGridView內容重置(判斷有無內容)
+            if (dataGridView1.Rows.Count != 0) { dataGridView1.Rows.Clear();}
+
             numPlayer = Int32.Parse(txtPlayer.Text);
             if (numPlayer <= 52) {
                 // if可以好好對齊嗎?(Ninten加的)
@@ -39,15 +50,22 @@ namespace RandomCard
                 {
                     if (card.Length - getCardNumber * i > getCardNumber)
                     {
-                        txtMessage += "玩家" + (i + 1) + ":";
+                        //txtMessage += "玩家" + (i + 1) + ":";
+                        row[0]= "玩家" + (i + 1);
                         for (int j = (0 + i) * getCardNumber; j < (1 + i) * getCardNumber; j++)
                         {
-                            txtMessage += reShuffleCard[j] + ",";
-
+                            //txtMessage += reShuffleCard[j] + ",";
+                            cardMessage += reShuffleCard[j] + ",";
                         }
-                        txtMessage += "\n";
+                        //txtMessage += "\n";
+                        row[1] = cardMessage;
                     }
+                    dataGridView1.Rows.Add(row);
+                    row[0] = "";
+                    cardMessage = "";
                 }
+
+
 
                 if (card.Length % numPlayer != 0)
                 {
@@ -129,6 +147,11 @@ namespace RandomCard
             }
 
             return temp;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
