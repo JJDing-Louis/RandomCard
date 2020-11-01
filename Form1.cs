@@ -48,7 +48,7 @@ namespace RandomCard
 
                 for (int i = 0; i < numPlayer; i++)
                 {
-                    if (card.Length - getCardNumber * i > getCardNumber)
+                    if (card.Length - getCardNumber * i >= getCardNumber)
                     {
                         //txtMessage += "玩家" + (i + 1) + ":";
                         row[0]= "玩家" + (i + 1);
