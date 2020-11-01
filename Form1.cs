@@ -59,14 +59,14 @@ namespace RandomCard
                         }
                         //txtMessage += "\n";
                         row[1] = cardMessage;
-                    }
-                    dataGridView1.Rows.Add(row);
+                        dataGridView1.Rows.Add(row);
+                    }                   
                     row[0] = "";
                     cardMessage = "";
                 }
 
-
-
+                //此區寫剩下的牌數
+                richTextBox1.Clear();
                 if (card.Length % numPlayer != 0)
                 {
                     txtMessage += "剩下牌數" + card.Length % numPlayer + "\n";
@@ -75,7 +75,8 @@ namespace RandomCard
                         txtMessage += reShuffleCard[h] + ",";
                     }
                 }
-                MessageBox.Show(txtMessage);
+                //MessageBox.Show(txtMessage);
+                richTextBox1.AppendText(txtMessage);
                 txtMessage = ""; //訊息初始化
             }
             else { MessageBox.Show("玩家太多，且牌不夠!!!"); }
