@@ -13,16 +13,7 @@ namespace RandomCard
 {
     public partial class Form1 : Form
     {
-        //string player1, player2, player3, player4;
-        int[] card = new int[52];
-        object[] reShuffleCard = new object[52];
-        int numPlayer; //玩家人數
-        int getCardNumber; //分到的牌數
-        string txtMessage = ""; //顯示訊息
-        //string value = "";
-        string[] row = new string[2];
-        string cardMessage = "";
-        
+        public int cardNumber = 52;//宣告牌數 
 
         public Form1()
         {
@@ -36,123 +27,67 @@ namespace RandomCard
 
         private void btnResult_Click(object sender, EventArgs e)
         {
-            //DataGridView內容重置(判斷有無內容)
-            if (dataGridView1.Rows.Count != 0) { dataGridView1.Rows.Clear();}
-
-            numPlayer = Int32.Parse(txtPlayer.Text);
+            if (dataGridView1.Rows.Count != 0) { dataGridView1.Rows.Clear(); } //DataGridView內容重置(判斷有無內容)
+            int numPlayer = Int32.Parse(txtPlayer.Text);//取得玩家數量
+            List<int> card = new List<int>();//宣告手牌空間
             if (numPlayer <= 52) {
-                // if可以好好對齊嗎?(Ninten加的)
-                getCard();
-                reShuffleCard = Reshuffle(card);
-                getCardNumber =card.Length / numPlayer;
-
+                card = getCard();
+                card = Reshuffle(card);
+                int getCardNumber = card.Count / numPlayer;
                 for (int i = 0; i < numPlayer; i++)
                 {
-                    if (card.Length - getCardNumber * i >= getCardNumber)
+                    if (card.Count - getCardNumber * i >= getCardNumber)
                     {
-                        //txtMessage += "玩家" + (i + 1) + ":";
-                        row[0]= "玩家" + (i + 1);
+                        string[] row = new string[2]; //DataGridView 訊息結構   
+                        row[0] = $"玩家{(i + 1)}";
                         for (int j = (0 + i) * getCardNumber; j < (1 + i) * getCardNumber; j++)
                         {
-                            //txtMessage += reShuffleCard[j] + ",";
-                            cardMessage += reShuffleCard[j] + ",";
+                            row[1] += $"{card[j]},";
                         }
-                        //txtMessage += "\n";
-                        row[1] = cardMessage;
+                        row[1] += $" 共{getCardNumber}張";
                         dataGridView1.Rows.Add(row);
                     }                   
-                    row[0] = "";
-                    cardMessage = "";
                 }
-
                 //此區寫剩下的牌數
                 richTextBox1.Clear();
-                if (card.Length % numPlayer != 0)
+                if (card.Count % numPlayer != 0)
                 {
-                    txtMessage += "剩下牌數" + card.Length % numPlayer + "\n";
+                    string txtMessage = ""; //顯示訊息
+                    txtMessage += $"剩下牌數{card.Count % numPlayer}\n";
                     for (int h = numPlayer * getCardNumber; h < 52; h++)
                     {
-                        txtMessage += reShuffleCard[h] + ",";
+                        txtMessage += $"{card[h]},";
                     }
+                    richTextBox1.AppendText(txtMessage);
                 }
-                //MessageBox.Show(txtMessage);
-                richTextBox1.AppendText(txtMessage);
-                txtMessage = ""; //訊息初始化
             }
             else { MessageBox.Show("玩家太多，且牌不夠!!!"); }
 
-            /*顯示牌的內容
-            for (int i=0; i< reShuffleCard.Length; i++)
-            {
-                value += reShuffleCard[i] + ",";
-            }*/
-
-            /*for (int i =0; i<52; i++)
-            {
-                if (i < 13)
-                {
-                    player1 += reShuffleCard[i] + ",";
-                }else if (i < 26)
-                {
-                    player2 += reShuffleCard[i] + ",";
-                }
-                else if (i < 39)
-                {
-                    player3 += reShuffleCard[i] + ",";
-                }
-                else if (i < 52)
-                {
-                    player4 += reShuffleCard[i] + ",";
-                }
-            }*/
-
-            ///12345
-
-
-            /*MessageBox.Show("玩家1的卡:"+player1+"\n玩家2的卡:"+ player2 +
-                "\n玩家3的卡:" + player3 + "\n玩家4的卡:" + player4);*/
-            Array.Clear(card, 0, card.Length);//卡片清除
-                                              //value = "";
-                /*player1 = "";
-                player2 = "";
-                player3 = "";
-                player4 = "";*/
-
-        }
+         }
 
         //產生52張牌
-        public void getCard()
+        public List<int> getCard()
         {
-            for (int i = 0; i < card.Length; i++)
+            List<int> card = new List<int>();
+            for (int i = 1; i <= cardNumber; i++)
             {
-                card[i] = i + 1;
+                card.Add(i);
             }
+            return card;
         }
-
-        public object[] Reshuffle(int[] a)
+        
+        //以下為洗牌動作
+        public List<int> Reshuffle(List<int> card)
         {
-            object[] temp = new object[52];
-            Random rnd = new Random();
-            ArrayList list = new ArrayList();
-
-            for (int j=0; j<52; j++)
-            {
-                list.Add(card[j]);
-            }
-            //隨機存入資料
-            for(int i=52; i>0; i--)
-            {
+            Random rnd = new Random();//亂數
+            List<int> temp = new List<int>();//建立暫存空間
+            for (int i = 52; i > 0; i--)
+            {               
                 int c = rnd.Next(0, i);
-                temp[i - 1] = list[c];
-                list.Remove(list[c]);
+                temp.Add(card[c]);
+                card.Remove(card[c]);
             }
-
             return temp;
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
