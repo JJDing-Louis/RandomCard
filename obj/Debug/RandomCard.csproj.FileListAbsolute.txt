@@ -8,3 +8,13 @@ D:\Personal-Work-Space\C# Project\RandomCard\obj\Debug\RandomCard.csproj.Generat
 D:\Personal-Work-Space\C# Project\RandomCard\obj\Debug\RandomCard.csproj.CoreCompileInputs.cache
 D:\Personal-Work-Space\C# Project\RandomCard\obj\Debug\RandomCard.exe
 D:\Personal-Work-Space\C# Project\RandomCard\obj\Debug\RandomCard.pdb
+D:\Software(Program)\C# Project\RandomCard\bin\Debug\RandomCard.exe.config
+D:\Software(Program)\C# Project\RandomCard\bin\Debug\RandomCard.exe
+D:\Software(Program)\C# Project\RandomCard\bin\Debug\RandomCard.pdb
+D:\Software(Program)\C# Project\RandomCard\obj\Debug\RandomCard.csprojAssemblyReference.cache
+D:\Software(Program)\C# Project\RandomCard\obj\Debug\RandomCard.Form1.resources
+D:\Software(Program)\C# Project\RandomCard\obj\Debug\RandomCard.Properties.Resources.resources
+D:\Software(Program)\C# Project\RandomCard\obj\Debug\RandomCard.csproj.GenerateResource.cache
+D:\Software(Program)\C# Project\RandomCard\obj\Debug\RandomCard.csproj.CoreCompileInputs.cache
+D:\Software(Program)\C# Project\RandomCard\obj\Debug\RandomCard.exe
+D:\Software(Program)\C# Project\RandomCard\obj\Debug\RandomCard.pdb
