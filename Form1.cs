@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace RandomCard
@@ -29,35 +27,6 @@ namespace RandomCard
         {
             //DataGridView內容重置(判斷有無內容)
 
-            List<Class1> aa = new List<Class1>();
-            aa.Add(new Class1("1年A班", "王曉明"));
-            aa.Add(new Class1("1年B班", "鮭魚"));
-            aa.Add(new Class1("1年A班", "小美"));
-            aa.Add(new Class1("1年B班", "天竺鼠車車"));
-
-            var a = aa.Select(data => new
-                                 {
-                                     班級 = $"1{data.班級}",
-                                     班級1 = $"2{data.班級}",
-                                     數字 = int.Parse(data.班級.First().ToString())
-                                 })
-                .First(data=>data.班級1 == "21年B班") ;
-            //等同 var a = aa.Select(data=>$"1{data.班級}").ToList();
-            using (StreamWriter write = new StreamWriter(@".\.txt"))
-            {
-                write.WriteLine("");
-
-            }
-            try
-            {
-
-            }
-            catch (Exception ex)
-            { 
-            wr
-            }
-
-
             if (dataGridView1.Rows.Count != 0)
             {
                 dataGridView1.Rows.Clear();
@@ -65,7 +34,7 @@ namespace RandomCard
 
             if (Int32.TryParse(txtPlayer.Text, out int numPlayer))
             {
-                //int numPlayer = Int32.Parse(txtPlayer.Text);//取得玩家數量
+               numPlayer = Int32.Parse(txtPlayer.Text);
 
                 if (numPlayer <= cardNumber)
                 {
@@ -103,12 +72,12 @@ namespace RandomCard
                 }
                 else
                 {
-                    MessageBox.Show("請輸入正確數字");
+                    MessageBox.Show("玩家太多，且牌不夠!!!");
                 };
             }
             else
             {
-                MessageBox.Show("玩家太多，且牌不夠!!!");
+                MessageBox.Show("請輸入正確數字");                
             }
         }
 
